@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   # Routes for the Student resource:
+  get("/user_sign_up", {:controller => "students", :action => "new_registration_form"})
+  get("/user_sign_out", {:controller => "students", :action => "toast_cookie"})
+  get("/user_sign_in", {:controller => "students", :action => "sign_in_form"})
+  post("/verify_credentials", { :controller => "students", :action => "authenticate"})
 
   # CREATE
   post("/insert_student", { :controller => "students", :action => "create" })
