@@ -1,0 +1,134 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all courses
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new course
+    </h2>
+
+    <form action="/insert_course" method="post">
+      <div class="form-group">
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="quarter_box">
+          Quarter
+        </label>
+
+        <input type="text" id="quarter_box" name="query_quarter" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="course_name_box">
+          Course name
+        </label>
+
+        <input type="text" id="course_name_box" name="query_course_name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="group_number_box">
+          Group number
+        </label>
+
+        <input type="text" id="group_number_box" name="query_group_number" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create course
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          Quarter
+        </th>
+
+        <th>
+          Course name
+        </th>
+
+        <th>
+          Group number
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @courses.each do |course| %>
+      <tr>
+        <td>
+          <%= course.id %>
+        </td>
+
+        <td>
+          <%= course.year %>
+        </td>
+
+        <td>
+          <%= course.quarter %>
+        </td>
+
+        <td>
+          <%= course.course_name %>
+        </td>
+
+        <td>
+          <%= course.group_number %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(course.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(course.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/courses/<%= course.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

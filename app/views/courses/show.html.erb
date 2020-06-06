@@ -1,0 +1,116 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Course #<%= @course.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/courses" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_course/<%= @course.id %>" class="btn btn-block btn-outline-secondary">
+          Delete course
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Year
+      </dt>
+      <dd>
+        <%= @course.year %>
+      </dd>
+
+      <dt>
+        Quarter
+      </dt>
+      <dd>
+        <%= @course.quarter %>
+      </dd>
+
+      <dt>
+        Course name
+      </dt>
+      <dd>
+        <%= @course.course_name %>
+      </dd>
+
+      <dt>
+        Group number
+      </dt>
+      <dd>
+        <%= @course.group_number %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@course.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@course.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit course
+    </h2>
+
+    <form action="/modify_course/<%= @course.id %>"  method="post" >
+      <div class="form-group">
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year" class="form-control" value="<%= @course.year %>">
+      </div>
+
+      <div class="form-group">
+        <label for="quarter_box">
+          Quarter
+        </label>
+
+        <input type="text" id="quarter_box" name="query_quarter" class="form-control" value="<%= @course.quarter %>">
+      </div>
+
+      <div class="form-group">
+        <label for="course_name_box">
+          Course name
+        </label>
+
+        <input type="text" id="course_name_box" name="query_course_name" class="form-control" value="<%= @course.course_name %>">
+      </div>
+
+      <div class="form-group">
+        <label for="group_number_box">
+          Group number
+        </label>
+
+        <input type="text" id="group_number_box" name="query_group_number" class="form-control" value="<%= @course.group_number %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update course
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

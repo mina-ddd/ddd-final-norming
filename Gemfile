@@ -16,6 +16,7 @@ gem 'sassc-rails'
 gem 'webpacker', '~> 4.0'
 gem 'faker'
 
+
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-watcher-listen', '~> 2.0.0'

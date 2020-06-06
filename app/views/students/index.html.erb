@@ -1,0 +1,102 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all students
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new student
+    </h2>
+
+    <form action="/insert_student" method="post">
+      <div class="form-group">
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="password_box">
+          Password
+        </label>
+
+        <input type="text" id="password_box" name="query_password" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create student
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Password
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @students.each do |student| %>
+      <tr>
+        <td>
+          <%= student.id %>
+        </td>
+
+        <td>
+          <%= student.name %>
+        </td>
+
+        <td>
+          <%= student.password %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(student.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(student.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/students/<%= student.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -10,6 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_06_06_160732) do
+
+  create_table "courses", force: :cascade do |t|
+    t.integer "year"
+    t.string "quarter"
+    t.string "course_name"
+    t.string "group_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "norming_sheet_lists", force: :cascade do |t|
+    t.integer "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "norming_sheets", force: :cascade do |t|
+    t.text "personality"
+    t.text "working_style"
+    t.text "life_beyond_kellogg"
+    t.text "development_goals"
+    t.text "hidden_superpower"
+    t.integer "class_id"
+    t.integer "sheet_list_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

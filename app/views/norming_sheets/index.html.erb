@@ -1,0 +1,182 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all norming sheets
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new norming sheet
+    </h2>
+
+    <form action="/insert_norming_sheet" method="post">
+      <div class="form-group">
+        <label for="personality_box">
+          Personality
+        </label>
+
+        <textarea id="personality_box" name="query_personality" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="working_style_box">
+          Working style
+        </label>
+
+        <textarea id="working_style_box" name="query_working_style" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="life_beyond_kellogg_box">
+          Life beyond kellogg
+        </label>
+
+        <textarea id="life_beyond_kellogg_box" name="query_life_beyond_kellogg" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="development_goals_box">
+          Development goals
+        </label>
+
+        <textarea id="development_goals_box" name="query_development_goals" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="hidden_superpower_box">
+          Hidden superpower
+        </label>
+
+        <textarea id="hidden_superpower_box" name="query_hidden_superpower" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="class_id_box">
+          Class
+        </label>
+
+        <input type="text" id="class_id_box" name="query_class_id" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="sheet_list_id_box">
+          Sheet list
+        </label>
+
+        <input type="text" id="sheet_list_id_box" name="query_sheet_list_id" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create norming sheet
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Personality
+        </th>
+
+        <th>
+          Working style
+        </th>
+
+        <th>
+          Life beyond kellogg
+        </th>
+
+        <th>
+          Development goals
+        </th>
+
+        <th>
+          Hidden superpower
+        </th>
+
+        <th>
+          Class
+        </th>
+
+        <th>
+          Sheet list
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @norming_sheets.each do |norming_sheet| %>
+      <tr>
+        <td>
+          <%= norming_sheet.id %>
+        </td>
+
+        <td>
+          <%= norming_sheet.personality %>
+        </td>
+
+        <td>
+          <%= norming_sheet.working_style %>
+        </td>
+
+        <td>
+          <%= norming_sheet.life_beyond_kellogg %>
+        </td>
+
+        <td>
+          <%= norming_sheet.development_goals %>
+        </td>
+
+        <td>
+          <%= norming_sheet.hidden_superpower %>
+        </td>
+
+        <td>
+          <%= norming_sheet.class_id %>
+        </td>
+
+        <td>
+          <%= norming_sheet.sheet_list_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(norming_sheet.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(norming_sheet.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/norming_sheets/<%= norming_sheet.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

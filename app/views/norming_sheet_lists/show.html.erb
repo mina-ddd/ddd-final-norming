@@ -1,0 +1,71 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Norming sheet list #<%= @norming_sheet_list.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/norming_sheet_lists" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_norming_sheet_list/<%= @norming_sheet_list.id %>" class="btn btn-block btn-outline-secondary">
+          Delete norming sheet list
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Student
+      </dt>
+      <dd>
+        <%= @norming_sheet_list.student_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@norming_sheet_list.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@norming_sheet_list.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit norming sheet list
+    </h2>
+
+    <form action="/modify_norming_sheet_list/<%= @norming_sheet_list.id %>"  method="post" >
+      <div class="form-group">
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id" class="form-control" value="<%= @norming_sheet_list.student_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update norming sheet list
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

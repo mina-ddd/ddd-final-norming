@@ -1,0 +1,86 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all norming sheet lists
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new norming sheet list
+    </h2>
+
+    <form action="/insert_norming_sheet_list" method="post">
+      <div class="form-group">
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create norming sheet list
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Student
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @norming_sheet_lists.each do |norming_sheet_list| %>
+      <tr>
+        <td>
+          <%= norming_sheet_list.id %>
+        </td>
+
+        <td>
+          <%= norming_sheet_list.student_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(norming_sheet_list.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(norming_sheet_list.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/norming_sheet_lists/<%= norming_sheet_list.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
