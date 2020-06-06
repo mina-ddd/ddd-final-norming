@@ -55,13 +55,13 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new
     @student.name = params.fetch("query_name")
-    @student.password_digest = params.fetch("query_password")
+    @student.password = params.fetch("query_password")
     # @student.password_confirmation = params.fetch("input_password_confirmation")
     
-
+    
     if @student.valid?
       @student.save
-      redirect_to("/students", { :notice => "Student created successfully." })
+      redirect_to("/norming_sheet_lists/:student_id", { :notice => "Student created successfully." })
     else
       redirect_to("/students", { :notice => "Student failed to create successfully." })
     end
