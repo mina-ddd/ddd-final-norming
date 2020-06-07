@@ -1,13 +1,16 @@
 class NormingSheetsController < ApplicationController
+
   def index
     @norming_sheets = NormingSheet.all.order({ :created_at => :desc })
-
-    render({ :template => "norming_sheets/index.html.erb" })
+    the_id = params.fetch("path_id")
+    @student = Student.where({:id => the_id }).at(0)
+    @norming_sheet = NormingSheet.where({:student_id => the_id }).at(0)
+    render({ :template => "norming_sheets/#{@student.id}" })
   end
 
   def show
     the_id = params.fetch("path_id")
-    @norming_sheet = NormingSheet.where({:id => the_id }).at(0)
+    @norming_sheet = NormingSheet.where({:student_id => the_id }).at(0)
 
     render({ :template => "norming_sheets/show.html.erb" })
   end

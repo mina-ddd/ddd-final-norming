@@ -12,6 +12,7 @@
 #  updated_at          :datetime         not null
 #  class_id            :integer
 #  sheet_list_id       :integer
+#  student_id          :integer
 #
 
 class NormingSheet < ApplicationRecord
