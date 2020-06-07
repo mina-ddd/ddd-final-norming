@@ -4,19 +4,7 @@
       Norming sheet <%=@norming_sheet.id%> details
     </h1>
 
-    <div class="row mb-3">
-      <div class="col">
-        <a href="/norming_sheets" class="btn btn-block btn-outline-secondary">
-          Go back
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="/delete_norming_sheet/<%= @norming_sheet.id %>" class="btn btn-block btn-outline-secondary">
-          Delete norming sheet
-        </a>
-      </div>
-    </div>
+    
 
     <dl>
       <dt>
@@ -83,10 +71,24 @@
       </dd>
     </dl>
   </div>
-</div>
+
 
 <hr>
 
+      <div class="col-md-8 offset-md-2">
+        <a href="/norming_sheets" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+      <br>
+      <br>
+      <div class="col-md-8 offset-md-2">
+        <a href="/delete_norming_sheet/<%= @norming_sheet.id %>" class="btn btn-block btn-outline-secondary">
+          Delete norming sheet
+        </a>
+      </div>
+    </div>
+    </div>
 
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
@@ -94,7 +96,7 @@
       Edit norming sheet
     </h2>
 
-    <form action="/modify_norming_sheet/<%= @norming_sheet.id %>"  method="post" >
+    <form action="/modify_norming_sheet/id/<%=@student.id%>/<%= @norming_sheet.id %>"  method="post" >
       <div class="form-group">
         <label for="personality_box">
           Personality

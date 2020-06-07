@@ -34,11 +34,11 @@ Rails.application.routes.draw do
   # READ
   get("/norming_sheets/id/:path_id", { :controller => "norming_sheets", :action => "index" })
   
-  get("/norming_sheets/:path_id", { :controller => "norming_sheets", :action => "show" })
+  get("/norming_sheets/id/:path_id/:sheet_id", { :controller => "norming_sheets", :action => "show" })
   
   # UPDATE
   
-  post("/modify_norming_sheet/:path_id", { :controller => "norming_sheets", :action => "update" })
+  post("/modify_norming_sheet/id/:path_id/:sheet_id", { :controller => "norming_sheets", :action => "update" })
   
   # DELETE
   get("/delete_norming_sheet/:path_id", { :controller => "norming_sheets", :action => "destroy" })

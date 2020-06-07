@@ -9,8 +9,10 @@ class NormingSheetsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("path_id")
-    @norming_sheet = NormingSheet.where({:student_id => the_id }).at(0)
+    the_s_id = params.fetch("path_id")
+    @student = Student.where({:id => the_s_id }).at(0)
+    the_id = params.fetch("sheet_id")
+    @norming_sheet = NormingSheet.where({:id => the_id }).at(0)
 
     render({ :template => "norming_sheets/show.html.erb" })
   end
@@ -50,7 +52,9 @@ class NormingSheetsController < ApplicationController
   end
 
   def update
-    the_id = params.fetch("path_id")
+    the_s_id = params.fetch("path_id")
+    @student = Student.where({:id => the_s_id }).at(0)
+    the_id = params.fetch("sheet_id")
     @norming_sheet = NormingSheet.where({ :id => the_id }).at(0)
 
     @norming_sheet.personality = params.fetch("query_personality")
@@ -63,9 +67,9 @@ class NormingSheetsController < ApplicationController
 
     if @norming_sheet.valid?
       @norming_sheet.save
-      redirect_to("/norming_sheets/#{@norming_sheet.id}", { :notice => "Norming sheet updated successfully."} )
+      redirect_to("/norming_sheets/id/#{@student.id}/#{@norming_sheet.id}", { :notice => "Norming sheet updated successfully."} )
     else
-      redirect_to("/norming_sheets/#{@norming_sheet.id}", { :alert => "Norming sheet failed to update successfully." })
+      redirect_to("/norming_sheets/id/#{@student.id}/#{@norming_sheet.id}", { :alert => "Norming sheet failed to update successfully." })
     end
   end
 

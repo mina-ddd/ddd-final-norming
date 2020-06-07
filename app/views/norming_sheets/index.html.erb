@@ -126,6 +126,10 @@
           Updated at
         </th>
 
+         <th>
+          Student ID
+        </th>
+
         <th>
         </th>
       </tr>
@@ -172,7 +176,11 @@
         </td>
 
         <td>
-          <a href="/norming_sheets/<%= norming_sheet.id %>">
+          <%= norming_sheet.student_id %>
+        </td>
+
+        <td>
+          <a href="/norming_sheets/id/<%= @student.id %>/<%= norming_sheet.id %>">
             Show details
           </a>
         </td>
