@@ -8,11 +8,12 @@
 
 <hr>
  <div class="form-group">
+    <form action="/insert_norming_sheet" method="post">
         <label for="student_id_box">
-          Student
+          Student ID
         </label>
 
-        <input type="text" id="student_id_box" name="query_student_id" class="form-control" value="<%= @student.id %>">
+        <input type="text" id="student_id_box" name="query_student_id" class="form-control" value="<%=@student.id%>">
       </div>
 
     <form action="/insert_norming_sheet" method="post">
