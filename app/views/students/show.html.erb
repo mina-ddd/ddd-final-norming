@@ -11,7 +11,113 @@
         Your Norming Sheets
       </dt>
       <dd>
+
         Placeholder for norming sheets list
+      <div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Class
+        </th>
+        
+        <th>
+          ID
+        </th>
+
+        <th>
+          Personality
+        </th>
+
+        <th>
+          Working style
+        </th>
+
+        <th>
+          Life beyond kellogg
+        </th>
+
+        <th>
+          Development goals
+        </th>
+
+        <th>
+          Hidden superpower
+        </th>
+
+      
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+         <th>
+          Student ID
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @norming_sheets.each do |norming_sheet| %>
+      <tr>
+
+        <td>
+          <%= norming_sheet.title %>
+        </td>
+       
+        <td>
+          <%= norming_sheet.id %>
+        </td>
+
+        <td>
+          <%= norming_sheet.personality %>
+        </td>
+
+        <td>
+          <%= norming_sheet.working_style %>
+        </td>
+
+        <td>
+          <%= norming_sheet.life_beyond_kellogg %>
+        </td>
+
+        <td>
+          <%= norming_sheet.development_goals %>
+        </td>
+
+        <td>
+          <%= norming_sheet.hidden_superpower %>
+        </td>
+
+
+
+        <td>
+          <%= time_ago_in_words(norming_sheet.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(norming_sheet.updated_at) %> ago
+        </td>
+
+        <td>
+          <%= norming_sheet.student_id %>
+        </td>
+
+        <td>
+          <a href="/norming_sheets/id/<%= @student.id %>/<%= norming_sheet.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
       </dd>
 
        <dt>

@@ -8,6 +8,13 @@
 
     <dl>
       <dt>
+        Class / Sheet title
+      </dt>
+      <dd>
+        <%= @norming_sheet.title %>
+      </dd>
+
+      <dt>
         Personality
       </dt>
       <dd>
@@ -42,19 +49,7 @@
         <%= @norming_sheet.hidden_superpower %>
       </dd>
 
-      <dt>
-        Class
-      </dt>
-      <dd>
-        <%= @norming_sheet.class_id %>
-      </dd>
-
-      <dt>
-        Sheet list
-      </dt>
-      <dd>
-        <%= @norming_sheet.sheet_list_id %>
-      </dd>
+      
 
       <dt>
         Created at
@@ -76,7 +71,7 @@
 <hr>
 
       <div class="col-md-8 offset-md-2">
-        <a href="/norming_sheets" class="btn btn-block btn-outline-secondary">
+        <a href="/students/id/<%=@student.id%>" class="btn btn-block btn-outline-secondary">
           Go back
         </a>
       </div>
@@ -97,7 +92,16 @@
     </h2>
 
     <form action="/modify_norming_sheet/id/<%=@student.id%>/<%= @norming_sheet.id %>"  method="post" >
+    
       <div class="form-group">
+        <label for="class_id_box">
+          Class
+        </label>
+        
+        <input type="text" id="class_id_box" name="query_class_id" class="form-control" value="<%= @norming_sheet.class_id %>">
+      </div>
+        
+          <div class="form-group">
         <label for="personality_box">
           Personality
         </label>
@@ -135,22 +139,6 @@
         </label>
 
         <textarea id="hidden_superpower_box" name="query_hidden_superpower" class="form-control" rows="3"><%= @norming_sheet.hidden_superpower %></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="class_id_box">
-          Class
-        </label>
-
-        <input type="text" id="class_id_box" name="query_class_id" class="form-control" value="<%= @norming_sheet.class_id %>">
-      </div>
-
-      <div class="form-group">
-        <label for="sheet_list_id_box">
-          Sheet list
-        </label>
-
-        <input type="text" id="sheet_list_id_box" name="query_sheet_list_id" class="form-control" value="<%= @norming_sheet.sheet_list_id %>">
       </div>
 
       <button class="btn btn-block btn-outline-secondary">

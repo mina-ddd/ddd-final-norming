@@ -48,7 +48,8 @@ class StudentsController < ApplicationController
   def show
     the_id = params.fetch("path_id")
     @student = Student.where({:id => the_id }).at(0)
-
+    # @norming_sheets = NormingSheet.where({ :student_id => @student }).at(0)
+    @norming_sheets = NormingSheet.where({ :student_id => @student }).order({ :created_at => :desc })
     render({ :template => "students/show.html.erb" })
   end
 

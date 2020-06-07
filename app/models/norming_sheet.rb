@@ -7,6 +7,7 @@
 #  hidden_superpower   :text
 #  life_beyond_kellogg :text
 #  personality         :text
+#  title               :string
 #  working_style       :text
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null

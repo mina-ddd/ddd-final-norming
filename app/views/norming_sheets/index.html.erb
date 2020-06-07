@@ -9,14 +9,22 @@
 <hr>
  <div class="form-group">
     <form action="/insert_norming_sheet" method="post">
-        <label for="student_id_box">
+        <%# <label for="student_id_box">
           Student ID
-        </label>
+        </label> %>
 
-        <input type="text" id="student_id_box" name="query_student_id" class="form-control" value="<%=@student.id%>">
+        <input type="hidden" id="student_id_box" name="query_student_id" class="form-control" value="<%=@student.id%>">
       </div>
 
     <form action="/insert_norming_sheet" method="post">
+      
+      <div class="form-group">
+        <label for="class_id_box">
+          Class
+        </label>
+
+        <input type="text" id="class_id_box" name="query_class_id" class="form-control">
+      </div>
 
       <div class="form-group">
         <label for="personality_box">
@@ -58,20 +66,6 @@
         <textarea id="hidden_superpower_box" name="query_hidden_superpower" class="form-control" rows="3"></textarea>
       </div>
 
-      <div class="form-group">
-        <label for="class_id_box">
-          Class
-        </label>
-
-        <input type="text" id="class_id_box" name="query_class_id" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="sheet_list_id_box">
-          Sheet list
-        </label>
-
-        <input type="text" id="sheet_list_id_box" name="query_sheet_list_id" class="form-control">
       </div>
 
       <button class="btn btn-block btn-outline-secondary">
@@ -86,6 +80,10 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
+        <th>
+          Class
+        </th>
+        
         <th>
           ID
         </th>
@@ -110,13 +108,7 @@
           Hidden superpower
         </th>
 
-        <th>
-          Class
-        </th>
-
-        <th>
-          Sheet list
-        </th>
+      
 
         <th>
           Created at
@@ -136,6 +128,11 @@
 
       <% @norming_sheets.each do |norming_sheet| %>
       <tr>
+
+        <td>
+          <%= norming_sheet.title %>
+        </td>
+       
         <td>
           <%= norming_sheet.id %>
         </td>
@@ -160,13 +157,7 @@
           <%= norming_sheet.hidden_superpower %>
         </td>
 
-        <td>
-          <%= norming_sheet.class_id %>
-        </td>
 
-        <td>
-          <%= norming_sheet.sheet_list_id %>
-        </td>
 
         <td>
           <%= time_ago_in_words(norming_sheet.created_at) %> ago

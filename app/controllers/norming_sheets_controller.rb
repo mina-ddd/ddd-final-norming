@@ -42,8 +42,8 @@ class NormingSheetsController < ApplicationController
     @norming_sheet.life_beyond_kellogg = params.fetch("query_life_beyond_kellogg")
     @norming_sheet.development_goals = params.fetch("query_development_goals")
     @norming_sheet.hidden_superpower = params.fetch("query_hidden_superpower")
-    @norming_sheet.class_id = params.fetch("query_class_id")
-    @norming_sheet.sheet_list_id = params.fetch("query_sheet_list_id")
+    @norming_sheet.title = params.fetch("query_class_id")
+    # @norming_sheet.sheet_list_id = params.fetch("query_sheet_list_id")
 
     if @norming_sheet.valid?
       @norming_sheet.save
@@ -64,8 +64,8 @@ class NormingSheetsController < ApplicationController
     @norming_sheet.life_beyond_kellogg = params.fetch("query_life_beyond_kellogg")
     @norming_sheet.development_goals = params.fetch("query_development_goals")
     @norming_sheet.hidden_superpower = params.fetch("query_hidden_superpower")
-    @norming_sheet.class_id = params.fetch("query_class_id")
-    @norming_sheet.sheet_list_id = params.fetch("query_sheet_list_id")
+    @norming_sheet.title = params.fetch("query_class_id")
+    # @norming_sheet.sheet_list_id = params.fetch("query_sheet_list_id")
 
     if @norming_sheet.valid?
       @norming_sheet.save
