@@ -17,36 +17,13 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
-        <th>
-          Class
-        </th>
+         <%# <a href="/courses/user/<%= @student.id/course/<%= @course.id %>"> %>
+            Class
+          </a> <th>
         
-        <th>
-          ID
         </th>
-
-        <th>
-          Personality
-        </th>
-
-        <th>
-          Working style
-        </th>
-
-        <th>
-          Life beyond kellogg
-        </th>
-
-        <th>
-          Development goals
-        </th>
-
-        <th>
-          Hidden superpower
-        </th>
-
-      
-
+        --> %>
+       
         <th>
           Created at
         </th>
@@ -70,43 +47,15 @@
           <%= norming_sheet.title %>
         </td>
        
+       
         <td>
-          <%= norming_sheet.id %>
-        </td>
-
-        <td>
-          <%= norming_sheet.personality %>
-        </td>
-
-        <td>
-          <%= norming_sheet.working_style %>
-        </td>
-
-        <td>
-          <%= norming_sheet.life_beyond_kellogg %>
-        </td>
-
-        <td>
-          <%= norming_sheet.development_goals %>
-        </td>
-
-        <td>
-          <%= norming_sheet.hidden_superpower %>
-        </td>
-
-
-
-        <td>
-          <%= time_ago_in_words(norming_sheet.created_at) %> ago
+          <%= norming_sheet.created_at %> 
         </td>
         <td>
-          <%= time_ago_in_words(norming_sheet.updated_at) %> ago
+          <%= norming_sheet.updated_at %>
         </td>
 
-        <td>
-          <%= norming_sheet.student_id %>
-        </td>
-
+      
         <td>
           <a href="/norming_sheets/id/<%= @student.id %>/<%= norming_sheet.id %>">
             Show details
@@ -140,6 +89,14 @@
         <div class="form-group">
         <a href="/norming_sheets/id/<%=@student.id%>%" class="btn btn-block btn-outline-secondary">
           Create new sheet
+        </a>
+        </div>
+   
+   
+  
+        <div class="form-group">
+        <a href="/courses/id/<%=@student.id%>" class="btn btn-block btn-outline-secondary">
+          Register new class
         </a>
         </div>
  

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_150212) do
+ActiveRecord::Schema.define(version: 2020_06_07_164742) do
 
   create_table "courses", force: :cascade do |t|
     t.integer "year"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_150212) do
     t.string "group_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id"
   end
 
   create_table "norming_sheet_lists", force: :cascade do |t|

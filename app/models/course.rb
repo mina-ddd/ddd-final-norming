@@ -9,6 +9,7 @@
 #  year         :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  student_id   :integer
 #
 
 class Course < ApplicationRecord

@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
   def index
+    the_id = params.fetch("path_id")
+    @student = Student.where({:id => the_id }).at(0)
     @courses = Course.all.order({ :created_at => :desc })
 
     render({ :template => "courses/index.html.erb" })
@@ -13,17 +15,19 @@ class CoursesController < ApplicationController
   end
 
   def create
+    the_id = params.fetch("path_id")
+    @student = Student.where({:id => the_id }).at(0)
     @course = Course.new
     @course.year = params.fetch("query_year")
     @course.quarter = params.fetch("query_quarter")
     @course.course_name = params.fetch("query_course_name")
     @course.group_number = params.fetch("query_group_number")
-
+    @course.student_id = params.fetch("query_student_id")
     if @course.valid?
       @course.save
-      redirect_to("/courses", { :notice => "Course created successfully." })
+      redirect_to("/courses/id/#{@student.id}", { :notice => "Course created successfully." })
     else
-      redirect_to("/courses", { :notice => "Course failed to create successfully." })
+      redirect_to("/courses/id/#{@student.id}", { :notice => "Course failed to create successfully." })
     end
   end
 

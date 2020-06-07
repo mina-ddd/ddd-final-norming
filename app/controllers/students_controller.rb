@@ -46,6 +46,8 @@ class StudentsController < ApplicationController
   end
 
   def show
+    # the_c_id = params.fetch("course_id")
+    # @course = Course.where({:id => the_c_id }).at(0)
     the_id = params.fetch("path_id")
     @student = Student.where({:id => the_id }).at(0)
     # @norming_sheets = NormingSheet.where({ :student_id => @student }).at(0)
