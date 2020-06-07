@@ -33,6 +33,8 @@ class NormingSheetsController < ApplicationController
 #   end
 
   def create
+    the_s_id = params.fetch("query_student_id")
+    @student = Student.where({:id => the_s_id }).at(0)
     @norming_sheet = NormingSheet.new
     @norming_sheet.student_id = params.fetch("query_student_id")
     @norming_sheet.personality = params.fetch("query_personality")
@@ -45,9 +47,9 @@ class NormingSheetsController < ApplicationController
 
     if @norming_sheet.valid?
       @norming_sheet.save
-      redirect_to("/norming_sheets", { :notice => "Norming sheet created successfully." })
+      redirect_to("/norming_sheets/id/#{@student.id}/#{@norming_sheet.id}", { :notice => "Norming sheet created successfully." })
     else
-      redirect_to("/norming_sheets", { :notice => "Norming sheet failed to create successfully." })
+      redirect_to("/norming_sheets/id/#{@student.id}", { :notice => "Norming sheet failed to create successfully." })
     end
   end
 
