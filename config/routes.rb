@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get("/user_sign_out", {:controller => "students", :action => "toast_cookie"})
   get("/user_sign_in", {:controller => "students", :action => "sign_in_form"})
   post("/verify_credentials", { :controller => "students", :action => "authenticate"})
-
+  
   # CREATE
   post("/insert_student", { :controller => "students", :action => "create" })
           
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   # CREATE
   post("/insert_norming_sheet", { :controller => "norming_sheets", :action => "create" })
+  
           
   # READ
   get("/norming_sheets", { :controller => "norming_sheets", :action => "index" })
@@ -66,7 +67,8 @@ Rails.application.routes.draw do
   # Routes for the Norming sheet list resource:
 
   # CREATE
-  post("/insert_norming_sheet_list", { :controller => "norming_sheet_lists", :action => "create" })
+  get("/insert_norming_sheet_list", { :controller => "norming_sheet_lists", :action => "create" })
+  #もともとPost
           
   # READ
   get("/norming_sheet_lists", { :controller => "norming_sheet_lists", :action => "index" })

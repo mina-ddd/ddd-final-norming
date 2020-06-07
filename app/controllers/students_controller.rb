@@ -11,18 +11,18 @@ class StudentsController < ApplicationController
     pw = params.fetch("query_password")
     
     # look up the recordfrom the db matching username
-    user = Student.where({ :name => un}).at(0)
+    @student = Student.where({ :name => un}).at(0)
 
     # if there's no record, redirect back to sign in form
-    if user == nil
+    if @student == nil
       redirect_to("/user_sign_in")
     else
     # if there is a record, check to see if password matches]
-      if  user.authenticate(pw)
+      if  @student.authenticate(pw)
       # if so, set the cookie
-        session.store(:user_id, user.id)
+        session.store(:path_id, @student.id)
       # redirect to homepage
-        redirect_to("/")
+        redirect_to("/students/:path_id")
       else   
       # if not, redirect back to sign in form
         redirect_to("/user_sign_in")
@@ -58,12 +58,12 @@ class StudentsController < ApplicationController
     @student.password = params.fetch("query_password")
     # @student.password_confirmation = params.fetch("input_password_confirmation")
     
-    
+
     if @student.valid?
       @student.save
-      redirect_to("/norming_sheet_lists/:student_id", { :notice => "Student created successfully." })
+      redirect_to("/students/:path_id", { :notice => "Student created successfully." })
     else
-      redirect_to("/students", { :notice => "Student failed to create successfully." })
+      redirect_to("/insert_student", { :notice => "Student failed to create successfully." })
     end
   end
 

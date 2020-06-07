@@ -1,20 +1,22 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      List of all norming sheets
+      Add a new norming sheet
     </h1>
   </div>
 </div>
 
 <hr>
+ <div class="form-group">
+        <label for="student_id_box">
+          Student
+        </label>
 
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <h2>
-      Add a new norming sheet
-    </h2>
+        <input type="text" id="student_id_box" name="query_student_id" class="form-control" value="<%= @student.id %>">
+      </div>
 
     <form action="/insert_norming_sheet" method="post">
+
       <div class="form-group">
         <label for="personality_box">
           Personality

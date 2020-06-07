@@ -1,19 +1,35 @@
-<h1>Team Norming Sheet</h1>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      Team Norming Sheet Management System
+    </h1>
+  </div>
+</div>
   
-  <h1>Sing In</h1>
+  <br>
+  <br>
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+  <h1>Sign In</h1>
 
+  <br>
 
   <form action="/verify_credentials" method="post">
   <label for="browser_username">Username</label>
-  <input id="browser_username" type="text" name="query_username" placeholder="Enter your username...">
+  <input id="browser_username" type="text" name="query_username" placeholder="Enter your username..."  class="form-control">
 
 
   <label for="browser_password">Password</label>
-  <input id="browser_password" type="password" name="query_password" placeholder="Enter your password...">
+  <input id="browser_password" type="password" name="query_password" placeholder="Enter your password..."  class="form-control">
 
-
-  <button>Sign in!</button>
+  <hr>
+  <hr>
+  
+  <div class="form-group">
+  <button class="btn btn-block btn-outline-secondary">Sign in!</button>
+  </div>
+ 
   </form>
   
   <a href ="/user_sign_up">Create an account</a>
-  
+  </div>
