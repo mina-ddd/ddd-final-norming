@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   post("/modify_norming_sheet/id/:path_id/:sheet_id", { :controller => "norming_sheets", :action => "update" })
   
   # DELETE
-  get("/delete_norming_sheet/:path_id", { :controller => "norming_sheets", :action => "destroy" })
+  get("/delete_norming_sheet/id/:path_id/:sheet_id", { :controller => "norming_sheets", :action => "destroy" })
 
   #------------------------------
 

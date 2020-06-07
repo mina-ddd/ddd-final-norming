@@ -76,11 +76,13 @@ class NormingSheetsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    @norming_sheet = NormingSheet.where({ :id => the_id }).at(0)
+    the_s_id = params.fetch("sheet_id")
+    @norming_sheet = NormingSheet.where({ :id => the_s_id }).at(0)
 
     @norming_sheet.destroy
+     the_id = params.fetch("path_id")
+    @student = Student.where({:id => the_id }).at(0)
 
-    redirect_to("/norming_sheets", { :notice => "Norming sheet deleted successfully."} )
+    redirect_to("/students/id/#{@student.id}>", { :notice => "Norming sheet deleted successfully."} )
   end
 end
