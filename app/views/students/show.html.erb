@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Student #<%= @student.id %> details
+      <%= @student.name %>'s Home Page
     </h1>
        <form action="/insert_norming_sheet_list" method="post">
     
@@ -13,82 +13,45 @@
         </a>
       </div>
 
-    <div class="row mb-3">
-      <div class="col">
-        <a href="/students" class="btn btn-block btn-outline-secondary">
-          Go back
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="/delete_student/<%= @student.id %>" class="btn btn-block btn-outline-secondary">
-          Delete student
-        </a>
-      </div>
-    </div>
+    <br>
+    <br>
 
     <dl>
       <dt>
-        Name
+        Your Norming Sheets
       </dt>
       <dd>
-        <%= @student.name %>
+        Placeholder for norming sheets list
       </dd>
 
-      <dt>
-        Password
+       <dt>
+        Your Team-mates' Sheets
       </dt>
       <dd>
-        <%= @student.password %>
+        Placeholder for team-mates' norming sheets list
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@student.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@student.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
+     
+ 
 </div>
 
 <hr>
 
 
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <h2>
-      Edit student
-    </h2>
 
-    <form action="/modify_student/<%= @student.id %>"  method="post" >
+  <div class="col-md-4 offset-md-4">
+  
+
+ 
+    <hr>
+     
       <div class="form-group">
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" class="form-control" value="<%= @student.name %>">
+        <a href="/delete_student/<%= @student.id %>" class="btn btn-block btn-outline-secondary">
+          Delete your account
+        </a>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for="password_box">
-          Password
-        </label>
-
-        <input type="text" id="password_box" name="query_password" class="form-control" value="<%= @student.password %>">
-      </div>
-
-      <button class="btn btn-block btn-outline-secondary">
-        Update student
-      </button>
-    </form>
+    </div>
   </div>
 </div>
 

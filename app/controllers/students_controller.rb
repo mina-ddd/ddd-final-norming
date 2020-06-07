@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
       # if so, set the cookie
         session.store(:path_id, @student.id)
       # redirect to homepage
-        redirect_to("/students/:path_id")
+        redirect_to("/students/id/#{@student.id}")
       else   
       # if not, redirect back to sign in form
         redirect_to("/user_sign_in")
@@ -61,7 +61,7 @@ class StudentsController < ApplicationController
 
     if @student.valid?
       @student.save
-      redirect_to("/students/:path_id", { :notice => "Student created successfully." })
+      redirect_to("/students/id/#{@student.id}", { :notice => "Student created successfully." })
     else
       redirect_to("/insert_student", { :notice => "Student failed to create successfully." })
     end

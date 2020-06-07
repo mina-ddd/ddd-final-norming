@@ -7,16 +7,16 @@ Rails.application.routes.draw do
   post("/verify_credentials", { :controller => "students", :action => "authenticate"})
   
   # CREATE
-  post("/insert_student", { :controller => "students", :action => "create" })
+  get("/insert_student", { :controller => "students", :action => "create" })
           
   # READ
   get("/students", { :controller => "students", :action => "index" })
   
-  get("/students/:path_id", { :controller => "students", :action => "show" })
+  get("/students/id/:path_id", { :controller => "students", :action => "show" })
   
   # UPDATE
-  
-  post("/modify_student/:path_id", { :controller => "students", :action => "update" })
+
+  get("/modify_student/:path_id", { :controller => "students", :action => "update" })
   
   # DELETE
   get("/delete_student/:path_id", { :controller => "students", :action => "destroy" })
