@@ -32,9 +32,9 @@ Rails.application.routes.draw do
   
           
   # READ
-  get("/norming_sheets/id/:path_id", { :controller => "norming_sheets", :action => "index" })
+  get("/norming_sheets/userid/:path_id/course/:course_id", { :controller => "norming_sheets", :action => "index" })
   
-  get("/norming_sheets/id/:path_id/:sheet_id", { :controller => "norming_sheets", :action => "show" })
+  get("/norming_sheets/id/:path_id/course/:sheet_id", { :controller => "norming_sheets", :action => "show" })
   
   # UPDATE
   
