@@ -15,8 +15,9 @@ class NormingSheetsController < ApplicationController
     @norming_sheets = NormingSheet.all.order({ :created_at => :desc })
      the_id = params.fetch("path_id")
     @student = Student.where({:id => the_id }).at(0)
-    the_c_id = params.fetch("course_id")
-    @course = Course.where({:id => the_c_id }).at(0)
+    the_s_id = params.fetch("sheet_id")
+    @norming_sheet = NormingSheet.where({:id => the_s_id }).at(0)
+
     render({ :template => "norming_sheets/index.html.erb" })
   end
 
@@ -47,6 +48,8 @@ class NormingSheetsController < ApplicationController
 #   end
 
   def create
+    # the_c_id = params.fetch("course_id")
+    # @course = Course.where({:id => the_c_id }).at(0)
     the_s_id = params.fetch("query_student_id")
     @student = Student.where({:id => the_s_id }).at(0)
     @norming_sheet = NormingSheet.new
@@ -56,18 +59,19 @@ class NormingSheetsController < ApplicationController
     @norming_sheet.life_beyond_kellogg = params.fetch("query_life_beyond_kellogg")
     @norming_sheet.development_goals = params.fetch("query_development_goals")
     @norming_sheet.hidden_superpower = params.fetch("query_hidden_superpower")
-    @norming_sheet.title = params.fetch("query_class_id")
+    @norming_sheet.title = params.fetch("query_class_name")
     # @norming_sheet.sheet_list_id = params.fetch("query_sheet_list_id")
 
     if @norming_sheet.valid?
       @norming_sheet.save
-      redirect_to("/norming_sheets/id/#{@student.id}/course/#{@norming_sheet.id}", { :notice => "Norming sheet created successfully." })
+      redirect_to("/norming_sheets/userid/#{@student.id}/sheet/#{@norming_sheet.id}", { :notice => "Norming sheet created successfully." })
     else
-      redirect_to("/norming_sheets/id/#{@student.id}", { :notice => "Norming sheet failed to create successfully." })
+      redirect_to("/norming_sheets/userid/#{@student.id}", { :notice => "Norming sheet failed to create successfully." })
     end
   end
 
   def update
+    @course = Course.where({:id => @norming_sheet.class_id }).at(0)
     the_s_id = params.fetch("path_id")
     @student = Student.where({:id => the_s_id }).at(0)
     the_id = params.fetch("sheet_id")
@@ -78,14 +82,14 @@ class NormingSheetsController < ApplicationController
     @norming_sheet.life_beyond_kellogg = params.fetch("query_life_beyond_kellogg")
     @norming_sheet.development_goals = params.fetch("query_development_goals")
     @norming_sheet.hidden_superpower = params.fetch("query_hidden_superpower")
-    @norming_sheet.title = params.fetch("query_class_id")
+    @norming_sheet.class_id = params.fetch("query_class_id")
     # @norming_sheet.sheet_list_id = params.fetch("query_sheet_list_id")
 
     if @norming_sheet.valid?
       @norming_sheet.save
-      redirect_to("/norming_sheets/id/#{@student.id}/course/#{@norming_sheet.id}", { :notice => "Norming sheet updated successfully."} )
+      redirect_to("/norming_sheets/userid/#{@student.id}/course/#{@norming_sheet.id}", { :notice => "Norming sheet updated successfully."} )
     else
-      redirect_to("/norming_sheets/id/#{@student.id}/course/#{@norming_sheet.id}", { :alert => "Norming sheet failed to update successfully." })
+      redirect_to("/norming_sheets/userid/#{@student.id}/course/#{@norming_sheet.id}", { :alert => "Norming sheet failed to update successfully." })
     end
   end
 

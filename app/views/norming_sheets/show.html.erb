@@ -91,15 +91,9 @@
       Edit norming sheet
     </h2>
 
-    <form action="/modify_norming_sheet/id/<%=@student.id%>/<%= @norming_sheet.id %>"  method="post" >
+    <form action="/modify_norming_sheet/userid/<%=@student.id%>/sheet/<%= @norming_sheet.id %>"  method="post" >
     
-      <div class="form-group">
-        <label for="class_id_box">
-          Class
-        </label>
-        
-        <input type="text" id="class_id_box" name="query_class_id" class="form-control" value="<%= @norming_sheet.class_id %>">
-      </div>
+   
         
           <div class="form-group">
         <label for="personality_box">
