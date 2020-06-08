@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      Add a new norming sheet to <%=@norming_sheet.title%>
+      Add a new norming sheet to <%=@course.course_name%>
     </h1>
   </div>
 </div>
@@ -23,7 +23,7 @@
         </label> %>
 
   
-        <input type="hidden" id="class_id_box" name="query_class_name" class="form-control" value="<%=@norming_sheet.title%>">
+        <input type="hidden" id="class_id_box" name="query_class_name" class="form-control" value="<%=@course.course_name%>">
       </div>
 <%# 
       <div class="form-group">
@@ -32,7 +32,7 @@
         </label> %>
 
   
-        <input type="hidden" id="class_name_box" name="query_class_id" class="form-control" value="<%=@norming_sheet.class_id%>">
+        <input type="hidden" id="class_name_box" name="query_class_id" class="form-control" value="<%=@course.id%>">
       </div>
 
 

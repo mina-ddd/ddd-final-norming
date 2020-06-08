@@ -1,8 +1,10 @@
 class CoursesController < ApplicationController
   def index
     the_id = params.fetch("path_id")
-    @student = Student.where({:id => the_id }).at(0)
+    @course = Course.where({:id => the_id}).at(0)
+    # @student = Student.where({:id => the_id }).at(0)
     @courses = Course.all.order({ :created_at => :desc })
+   
 
     render({ :template => "courses/index.html.erb" })
   end
@@ -14,6 +16,8 @@ class CoursesController < ApplicationController
     @student = Student.where({:id => the_id }).at(0)
     # the_c_id = params.fetch("sheet_id")
     # @course = Course.where({:id => the_c_id }).at(0)
+    # the_s_id = params.fetch("sheet_id")
+    # @norming_sheet = NormingSheet.where({:id => the_s_id }).at(0)
     @own_courses = Course.where({ :student_id => @student }).order({ :created_at => :desc })
     render({ :template => "courses/list.html.erb" })
   end
@@ -54,7 +58,9 @@ class CoursesController < ApplicationController
   end
 
   def update
-    the_id = params.fetch("path_id")
+    the_s_id= params.fetch("path_id")
+    @student = Student.where({ :id => the_s_id}).at(0)
+    the_id = params.fetch("course_id")
     @course = Course.where({ :id => the_id }).at(0)
 
     @course.year = params.fetch("query_year")
@@ -64,9 +70,9 @@ class CoursesController < ApplicationController
 
     if @course.valid?
       @course.save
-      redirect_to("/courses/#{@course.id}", { :notice => "Course updated successfully."} )
+      redirect_to("/courses/id/#{@course.student_id}/course_list", { :notice => "Course updated successfully."} )
     else
-      redirect_to("/courses/#{@course.id}", { :alert => "Course failed to update successfully." })
+      redirect_to("/courses/id/#{@course.student_id}/course_list", { :alert => "Course failed to update successfully." })
     end
   end
 

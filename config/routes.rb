@@ -33,7 +33,7 @@ Rails.application.routes.draw do
           
   # READ
   get("/norming_sheets/userid/:path_id", { :controller => "norming_sheets", :action => "index" })
-  get("/norming_sheets/userid/:path_id/course/:sheet_id", { :controller => "norming_sheets", :action => "show_course" })
+  get("/norming_sheets/userid/:path_id/course/:course_id", { :controller => "norming_sheets", :action => "show_course" })
   get("/norming_sheets/userid/:path_id/sheet/:sheet_id", { :controller => "norming_sheets", :action => "show" })
   
   # UPDATE
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  get("/modify_course/:path_id", { :controller => "courses", :action => "update" })
+  post("/modify_course/userid/:path_id/course/:course_id", { :controller => "courses", :action => "update" })
   
   # DELETE
   get("/delete_course/:path_id", { :controller => "courses", :action => "destroy" })
