@@ -5,6 +5,8 @@ class NormingSheetsController < ApplicationController
     the_id = params.fetch("path_id")
     @student = Student.where({:id => the_id }).at(0)
     # @norming_sheet = NormingSheet.where({:student_id => the_id }).at(0)
+    
+    @courses = Course.all.order({ :created_at => :desc })
     render({ :template => "norming_sheets/index.html.erb" })
   end
 

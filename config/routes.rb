@@ -52,7 +52,7 @@ Rails.application.routes.draw do
           
   # READ
   get("/courses/id/:path_id", { :controller => "courses", :action => "index" })
-  
+  get("/courses/id/:path_id/course_list", { :controller => "courses", :action => "list" })  
   get("/courses/user/:path_id/course/:course_id", { :controller => "courses", :action => "show" })
   
   # UPDATE

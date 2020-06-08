@@ -7,6 +7,15 @@ class CoursesController < ApplicationController
     render({ :template => "courses/index.html.erb" })
   end
 
+  def list
+    the_id = params.fetch("path_id")
+    @student = Student.where({:id => the_id }).at(0)
+    @courses = Course.all.order({ :created_at => :desc })
+    # the_c_id = params.fetch("course_id")
+    # @course = Course.where({:id => the_c_id }).at(0)
+    render({ :template => "courses/list.html.erb" })
+  end
+  
   def show
     the_id = params.fetch("path_id")
     @course = Course.where({:id => the_id }).at(0)

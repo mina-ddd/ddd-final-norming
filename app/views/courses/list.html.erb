@@ -1,0 +1,89 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      Select the classes you want to add the sheet
+    </h1>
+  </div>
+</div>
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Class
+        </th>
+        
+        <th>
+          Group number
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          Quarter
+        </th>
+
+        <th>
+          Course ID
+        </th>
+      </tr>
+
+ <% @courses.each do |course| %>
+      <tr>
+
+        <td>
+          <%= course.course_name %>
+        </td>
+       
+        <td>
+          <%= course.group_number %>
+        </td>
+      
+        <td>
+          <%= course.year %>
+        </td>
+
+        <td>
+          <%= course.quarter %>
+        </td>
+
+        <td>
+          <%= course.id%>
+        </td>
+       
+         
+       
+       
+      <td>
+      <button class="btn btn-block btn-outline-secondary">
+        Select
+      </button>
+      </td>
+      <td>
+
+      
+      <a href="/">
+        Edit
+      </a>
+      </form>
+      </td>
+    </form>
+        </td>
+      </tr>
+      <% end %>
+
+<div>
+
+     <dt>
+      Cannot find the class?
+      </dt>
+  
+        <div class="form-group">
+        <a href="/courses/id/<%=@student.id%>" class="btn btn-block btn-outline-secondary">
+          Add your classes
+        </a>
+        </div>
+        </div>
