@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
     @courses = Course.all.order({ :created_at => :desc })
     # the_c_id = params.fetch("course_id")
     # @course = Course.where({:id => the_c_id }).at(0)
+    @own_courses = Course.where({ :student_id => @student }).order({ :created_at => :desc })
     render({ :template => "courses/list.html.erb" })
   end
   

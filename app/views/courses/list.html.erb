@@ -31,7 +31,7 @@
         </th>
       </tr>
 
- <% @courses.each do |course| %>
+ <% @own_courses.each do |course| %>
       <tr>
 
         <td>
@@ -58,9 +58,11 @@
        
        
       <td>
+      <form action="/norming_sheets/id/<%=@student.id%>">
       <button class="btn btn-block btn-outline-secondary">
         Select
       </button>
+      </form>
       </td>
       <td>
 
