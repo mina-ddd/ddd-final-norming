@@ -15,7 +15,7 @@ class StudentsController < ApplicationController
 
     # if there's no record, redirect back to sign in form
     if @student == nil
-      redirect_to("/user_sign_in")
+      redirect_to("/", { :notice => "The username or password is incorrect. Try again!"})
     else
     # if there is a record, check to see if password matches]
       if  @student.authenticate(pw)
@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
         redirect_to("/students/id/#{@student.id}")
       else   
       # if not, redirect back to sign in form
-        redirect_to("/user_sign_in")
+        redirect_to("/", { :notice => "The username or password is incorrect. Try again!"})
       end
     end
   end
@@ -91,6 +91,6 @@ class StudentsController < ApplicationController
 
     @student.destroy
 
-    redirect_to("/students", { :notice => "Student deleted successfully."} )
+    redirect_to("/", { :notice => "Student deleted successfully."} )
   end
 end

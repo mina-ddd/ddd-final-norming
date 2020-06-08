@@ -53,11 +53,12 @@ Rails.application.routes.draw do
   # READ
   get("/courses/id/:path_id", { :controller => "courses", :action => "index" })
   get("/courses/id/:path_id/course_list", { :controller => "courses", :action => "list" })  
-  get("/courses/user/:path_id/course/:sheet_id", { :controller => "courses", :action => "show" })
+  get("/courses/userid/:path_id/course/:sheet_id", { :controller => "courses", :action => "show_course" })
+  get("/courses/userid/:path_id/edit/course/:sheet_id", { :controller => "courses", :action => "show" })
   
   # UPDATE
   
-  post("/modify_course/:path_id", { :controller => "courses", :action => "update" })
+  get("/modify_course/:path_id", { :controller => "courses", :action => "update" })
   
   # DELETE
   get("/delete_course/:path_id", { :controller => "courses", :action => "destroy" })

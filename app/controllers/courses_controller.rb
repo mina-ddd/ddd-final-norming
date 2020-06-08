@@ -18,8 +18,19 @@ class CoursesController < ApplicationController
     render({ :template => "courses/list.html.erb" })
   end
   
+  def show_course
+    @norming_sheets = NormingSheet.all.order({ :created_at => :desc })
+    the_id = params.fetch("path_id")
+    @student = Student.where({:id => the_id }).at(0)
+    the_c_id = params.fetch("sheet_id")
+    @course = Course.where({:id => the_c_id }).at(0)
+    @courses = Course.all.order({ :created_at => :desc })
+
+    render({ :template => "courses/show.html.erb" })
+  end
+  
   def show
-    the_id = params.fetch("course_id")
+    the_id = params.fetch("sheet_id")
     @course = Course.where({:id => the_id }).at(0)
 
     render({ :template => "courses/show.html.erb" })
