@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      Add a new norming sheet
+      Add a new norming sheet to <%=@course.course_name%>
     </h1>
   </div>
 </div>
@@ -13,26 +13,26 @@
           Student ID
         </label>
 
-        <input type="text" id="student_id_box" name="query_student_id" class="form-control" value="<%=@student.id%>">
+        <input type="text" id="student_id_box" name="query_student_id" class="form-control" value="<%=@course.student_id%>">
       <div>
 
 
       <div class="form-group">
         <label for="class_id_box">
-          Class ID
-        </label>
-
-  
-        <input type="text" id="class_id_box" name="query_class_id" class="form-control" value="<%=@course.id%>">
-      </div>
-
-      <div class="form-group">
-        <label for="class_name_box">
           Class Name
         </label>
 
   
-        <input type="text" id="class_name_box" name="query_class_name" class="form-control" value="<%=@course.course_name%>">
+        <input type="text" id="class_id_box" name="query_class_id" class="form-control" value="<%=@course.course_name%>">
+      </div>
+
+      <div class="form-group">
+        <label for="class_name_box">
+          Class ID
+        </label>
+
+  
+        <input type="text" id="class_name_box" name="query_class_name" class="form-control" value="<%=@course.id%>">
       </div>
 
 
@@ -181,7 +181,7 @@
         </td>
 
         <td>
-          <a href="/norming_sheets/id/<%= @student.id %>/<%= norming_sheet.id %>">
+          <a href="/norming_sheets/userid/<%= @student.id %>/course/<%= norming_sheet.id %>">
             Show details
           </a>
         </td>

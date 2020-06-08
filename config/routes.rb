@@ -32,9 +32,9 @@ Rails.application.routes.draw do
   
           
   # READ
-  get("/norming_sheets/userid/:path_id/course/:course_id", { :controller => "norming_sheets", :action => "index" })
-  
-  get("/norming_sheets/id/:path_id/course/:sheet_id", { :controller => "norming_sheets", :action => "show" })
+  get("/norming_sheets/userid/:path_id", { :controller => "norming_sheets", :action => "index" })
+  get("/norming_sheets/userid/:path_id/course/:course_id", { :controller => "norming_sheets", :action => "show_course" })
+  get("/norming_sheets/userid/:path_id/sheet/:sheet_id", { :controller => "norming_sheets", :action => "show" })
   
   # UPDATE
   
@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   # READ
   get("/courses/id/:path_id", { :controller => "courses", :action => "index" })
   get("/courses/id/:path_id/course_list", { :controller => "courses", :action => "list" })  
-  get("/courses/user/:path_id/course/:course_id", { :controller => "courses", :action => "show" })
+  get("/courses/user/:path_id/course/:sheet_id", { :controller => "courses", :action => "show" })
   
   # UPDATE
   
