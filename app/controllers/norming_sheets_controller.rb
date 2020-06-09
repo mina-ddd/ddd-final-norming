@@ -27,10 +27,9 @@ class NormingSheetsController < ApplicationController
     @student = Student.where({:id => the_s_id }).at(0)
     the_id = params.fetch("sheet_id")
     @norming_sheet = NormingSheet.where({:id => the_id }).at(0)
-    the_c_id = params.fetch("course_id")
-    @course = Course.where({:id => the_c_id }).at(0)
     # the_c_id = params.fetch("course_id")
     # @course = Course.where({:id => the_c_id }).at(0)
+ 
 
     render({ :template => "norming_sheets/show.html.erb" })
   end

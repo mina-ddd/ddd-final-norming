@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   def index
-    the_id = params.fetch("path_id")
-    @course = Course.where({:id => the_id}).at(0)
+    # the_c_id = params.fetch("course_id")
+    # @course = Course.where({:id => the_c_id}).at(0)
     # @student = Student.where({:id => the_id }).at(0)
     @courses = Course.all.order({ :created_at => :desc })
    
@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
     render({ :template => "courses/list.html.erb" })
   end
   
-  def show_course
+  def course_edit
     @norming_sheets = NormingSheet.all.order({ :created_at => :desc })
     the_id = params.fetch("path_id")
     @student = Student.where({:id => the_id }).at(0)
@@ -39,6 +39,19 @@ class CoursesController < ApplicationController
 
     render({ :template => "courses/show.html.erb" })
   end
+
+  def course_create
+    @norming_sheets = NormingSheet.all.order({ :created_at => :desc })
+    the_id = params.fetch("path_id")
+    @student = Student.where({:id => the_id }).at(0)
+    the_c_id = params.fetch("sheet_id")
+    @course = Course.where({:id => the_c_id }).at(0)
+    @courses = Course.all.order({ :created_at => :desc })
+
+    render({ :template => "courses/show.html.erb" })
+  end
+  
+  
 
   def create
     the_id = params.fetch("path_id")

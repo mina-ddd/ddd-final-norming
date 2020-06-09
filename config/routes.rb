@@ -48,13 +48,14 @@ Rails.application.routes.draw do
   # Routes for the Course resource:
 
   # CREATE
-  post("/insert_course/id/:path_id", { :controller => "courses", :action => "create" })
+  get("/insert_course/userid/:path_id/create/course/:course_id", { :controller => "courses", :action => "course_create" })
+  post("/insert_course/userid/:path_id/course/:course_id", { :controller => "courses", :action => "create" })
           
   # READ
-  get("/courses/id/:path_id", { :controller => "courses", :action => "index" })
+  get("/courses/userid/:path_id", { :controller => "courses", :action => "index" })
   get("/courses/id/:path_id/course_list", { :controller => "courses", :action => "list" })  
-  get("/courses/userid/:path_id/course/:sheet_id", { :controller => "courses", :action => "show_course" })
-  get("/courses/userid/:path_id/edit/course/:sheet_id", { :controller => "courses", :action => "show" })
+  get("/courses/userid/:path_id/edit/course/:sheet_id", { :controller => "courses", :action => "course_edit" })
+  get("/courses/userid/:path_id/course/:sheet_id", { :controller => "courses", :action => "show" })
   
   # UPDATE
   
